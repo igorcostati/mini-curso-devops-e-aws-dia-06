@@ -7,7 +7,7 @@
     region: "us-east-1"
     eks_cluster: "labs-dvn-mini-curso-devops-e-aws-eks-cluster"
     aws_account_id: "273444517440" 
-    vpcId: "vpc-04a4063be7c6c35c6" 
+    vpcId: "vpc-021e5b80a9908b641" 
   tasks:
     - name: Download IAM Policy
       shell: |
@@ -25,6 +25,7 @@
       args:
         executable: /bin/bash
     - name: Setup IRSA
+      tags: irsa
       shell: |
         eksctl create iamserviceaccount \
         --cluster={{ eks_cluster }} \

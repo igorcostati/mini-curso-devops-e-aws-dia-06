@@ -156,6 +156,8 @@ aws ecr get-login-password --region us-east-1 | docker login --username AWS --pa
 
 docker push 273444517440.dkr.ecr.us-east-1.amazonaws.com/labs-dvn-repo/dev/backend:v2.0
 
+aws eks update-kubeconfig --region us-east-1 --name labs-dvn-mini-curso-devops-e-aws-eks-cluster
+
 # Criar deployment
 
  kubectl apply -f manifests/consumer.yml -f manifests/producer.yml -n kafka
