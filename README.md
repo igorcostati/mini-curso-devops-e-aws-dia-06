@@ -137,7 +137,7 @@ kubectl apply -f manifests/kafka.cluster.yml -f manifests/kafka.controller.yml -
 kubectl get svc -n kafka
 
 # Build das aplicações
-
+#testar o kafka
 docker build -f node-api-consumer/Dockerfile -t 273444517440.dkr.ecr.us-east-1.amazonaws.com/labs-dvn-repo/strimzi/consumer:v2.0 node-api-consumer/
 
 aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 273444517440.dkr.ecr.us-east-1.amazonaws.com
@@ -147,6 +147,14 @@ docker push 273444517440.dkr.ecr.us-east-1.amazonaws.com/labs-dvn-repo/strimzi/c
 docker build -f node-api-producer/Dockerfile -t 273444517440.dkr.ecr.us-east-1.amazonaws.com/labs-dvn-repo/strimzi/producer:v2.0 node-api-producer/
  
 docker push 273444517440.dkr.ecr.us-east-1.amazonaws.com/labs-dvn-repo/strimzi/producer:v2.0
+
+#testar ALB
+
+docker build -f backend/YoutubeLiveApp/Dockerfile -t 273444517440.dkr.ecr.us-east-1.amazonaws.com/labs-dvn-repo/dev/backend:v2.0 backend/
+
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 273444517440.dkr.ecr.us-east-1.amazonaws.com
+
+docker push 273444517440.dkr.ecr.us-east-1.amazonaws.com/labs-dvn-repo/dev/backend:v2.0
 
 # Criar deployment
 
